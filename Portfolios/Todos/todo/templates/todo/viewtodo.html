@@ -1,0 +1,26 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+<h1>{{ todo.title }}</h1>
+<div class="but">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn">Сохранить</button>
+    </form>
+
+<!--    <form action="{% url 'complete' todo.id %}" method="post">-->
+<!--        {% csrf_token %}-->
+<!--        <button class="btn good">Выполнено</button>-->
+<!--    </form>-->
+
+    <form action="{% url 'delete' todo.id %}" method="post">
+        {% csrf_token %}
+        <button class="btn remove">Удалить</button>
+    </form>
+
+</div>
+
+{% endblock %}
+

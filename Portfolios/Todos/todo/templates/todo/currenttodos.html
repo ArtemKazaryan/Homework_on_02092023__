@@ -1,0 +1,30 @@
+{% extends 'todo/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<h1>Проекты:</h1>
+<ul>
+    {% for todo in todos%}
+    <li>
+        <a href="{% url 'viewtodo' todo.id%}">
+            <b>{{ todo.title }}</b>
+        </a>
+
+        {% if todo.description %}
+            {{ todo.description }}
+        {% endif %}
+
+        <a href="{{ todo.image}}" target="_blank"><img src="{{ todo.image }}" alt=""></a>
+        <div class="wrap">
+            <h2><a href="{{ todo.url }}" target="_blank" style="color: white">Ссылка на репозиторий</a></h2>
+        </div>
+
+        <form action="{% url 'delete' todo.id %}" method="post">
+            {% csrf_token %}
+            <button class="btn remove">Удалить из портфолио</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
