@@ -4,7 +4,7 @@
 
 <h1>{{ todo.title }}</h1>
 <div class="but">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button class="btn">Сохранить</button>
@@ -15,7 +15,7 @@
 <!--        <button class="btn good">Выполнено</button>-->
 <!--    </form>-->
 
-    <form action="{% url 'delete' todo.id %}" method="post">
+    <form action="{% url 'delete' todo.id %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <button class="btn remove">Удалить</button>
     </form>

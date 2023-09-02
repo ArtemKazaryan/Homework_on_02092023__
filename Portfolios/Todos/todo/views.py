@@ -59,7 +59,7 @@ def createtodo(request):
         return render(request, 'todo/createtodo.html', {'form': TodoForm()})
     else:
         try:
-            form = TodoForm(request.POST)
+            form = TodoForm(request.POST, request.FILES)
             new_todo = form.save(commit=False)
             new_todo.user = request.user
             new_todo.save()

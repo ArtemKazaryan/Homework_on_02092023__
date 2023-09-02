@@ -4,7 +4,7 @@
 
 <h1>Добавление проекта</h1>
 
-<form method="post" class="bg">
+<form method="post" class="bg" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
 

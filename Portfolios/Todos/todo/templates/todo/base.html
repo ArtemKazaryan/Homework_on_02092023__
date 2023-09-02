@@ -17,7 +17,7 @@
             <li><a href="{% url 'create' %}">Добавить проект</a></li>
             <li><a href="{% url 'current' %}">Содержимое портфолио</a></li>
             <li>
-                <form action="{% url 'logout' %}" method="post">
+                <form action="{% url 'logout' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <button class="btn bottom">Выйти</button>
                 </form>
